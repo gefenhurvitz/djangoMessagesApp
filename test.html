@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+
+  <script>
+    const getdata = () => {
+      fetch("http://127.0.0.1:8000/products/",{
+        method: "POST",
+        body:JSON.stringify({
+            desc: "hello"
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    };
+  </script>
+  <body>
+    <button onclick="getdata()">click</button>
+  </body>
+</html>
