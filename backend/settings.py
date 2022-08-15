@@ -92,7 +92,7 @@ DATABASES = {
         'NAME': 'dbtest', 
         'USER': 'postgres', 
         'PASSWORD': '123',
-        'HOST': '127.0.0.1', 
+        'HOST': 'django-messages-app.herokuapp.com' , 
         'PORT': '5432',
     }
 }
