@@ -23,9 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-dvy(!#v3s0ufk!0y68*f7vjuwa%sk&7_+1$cj(dnr3)yuabd!y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['django-messages-app.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'django-messages-app.herokuapp.com',
+    '127.0.0.1'
+    ]
 
 
 # Application definition
@@ -39,8 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base',
     'corsheaders',
-    'rest_framework',
-
+    'rest_framework'
 ]
 
 # REST_FRAMEWORK = { 'DEFAULT_AUTHENTICATION_CLASSES': ( 'rest_framework.authentication.TokenAuthentication', ) }
@@ -85,8 +87,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbtest', 
+        'USER': 'postgres', 
+        'PASSWORD': '123',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
     }
 }
 
