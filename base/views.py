@@ -1,6 +1,9 @@
 from itertools import product
 from django.http import JsonResponse
-from .models import Product
+from .models import Note, Product
+
+from .serializers.serializers import NoteSerializer
+
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -52,4 +55,15 @@ def products(request, id=-1):
 
 
 
+@api_view(['GET'])
+def getNotes(request):
+    notes = Note.objects.all()
+    serializer = NoteSerializer(notes, many=True)
+    return Response(serializer.data)
 
+
+@api_view(['GET'])
+def getNote(request, pk):
+    notes = Note.objects.get(id=pk)
+    serializer = NoteSerializer(notes, many=False)
+    return Response(serializer.data)
